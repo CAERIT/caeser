@@ -1,8 +1,14 @@
 
+def shift(data,key):
+    phrase = ""
+    for char in data:
+        phrase += chr(ord(char)+key)
+    return phrase
+        
 
+def main():
+    print(shift("hello",1))
 
-
-def main():{
-    print("test")
-}
-main()ddd
+if __name__ == "__main__":
+    main()
+    
