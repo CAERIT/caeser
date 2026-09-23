@@ -7,7 +7,10 @@ def shift(data,key):
         
 
 def main():
-    print(shift("hello",1))
+    message = input("enter your message: ")
+    key = int(input("enter your key: "))
+    print("resulting output: ", shift(message,key))
+
 
 if __name__ == "__main__":
     main()
