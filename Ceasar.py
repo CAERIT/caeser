@@ -5,4 +5,4 @@
 def main():{
     print("test")
 }
-main()
+main()ddd
