@@ -56,7 +56,15 @@ def main():
             print(key,"("+str(26-key)+"):",results[key],radic[lable])
             lable+=1
         print("....................................")
-        print("most likely result:",results[max(radic,key=radic.get)])
+        highest = results[max(radic,key=radic.get)]
+        print("most likely result:",highest)
+        fchoice=input("Enter filename to save, or press enter to exit: ")
+        if fchoice=="":
+            pass
+        else:
+            printout = message +" decrypted as " + highest + " with a key of: " + str(max(radic,key=radic.get))
+            with open(fchoice,"w") as file:
+                file.write(printout)
 
 
     else:
