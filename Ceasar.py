@@ -1,3 +1,8 @@
+import nltk
+#download word list
+#nltk.download("words", download_dir="./nltk_data")
+from nltk.corpus import words
+english_words = set(words.words())
 
 def shift(data,key):
     phrase = ""
@@ -19,10 +24,22 @@ def shift(data,key):
     return phrase
 
 def decryptLoop(data):
+
+
     outputDict=dict()
     for i in range(26):
         outputDict[i]=shift(data,i)
     return outputDict
+
+def calcRatio(phrase):
+    found = 0
+    strcount = len(phrase.split(" "))
+    for strword in phrase.split(" "):
+        if strword in english_words:
+            found +=1
+    return found/strcount
+        
+    
 
 def main():
     message = input("enter your message: ")
@@ -33,12 +50,11 @@ def main():
     elif choice =="d":
         results = decryptLoop(message)
         for key in results:
-            print(key,"(",26-key,"):",results[key])
+            print(key,"("+str(26-key)+"):",results[key],calcRatio(results[key]))
+        print("....................................")
+        print("most likely result")
     else:
         print("select e or d")
-
-    
-
 
 if __name__ == "__main__":
     main()
