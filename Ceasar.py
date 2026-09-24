@@ -46,7 +46,16 @@ def main():
     choice = input("(e)ncrpyting or (d)ecrypting?:")
     if choice =="e":
         key = int(input("enter your key: "))
-        print("resulting output: ", shift(message,key))
+        emessage = shift(message,key)
+        print("resulting output: ", emessage)
+        fchoice=input("Enter filename to save, or press enter to exit: ")
+        if fchoice=="":
+            pass
+        else:
+            printout = message +" encrypted as \"" + emessage + "\" with a key of: " + str(key)
+            with open(fchoice,"w") as file:
+                file.write(printout)
+
     elif choice =="d":
         results = decryptLoop(message)
         lable=0
