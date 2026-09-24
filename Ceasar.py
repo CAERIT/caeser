@@ -49,10 +49,16 @@ def main():
         print("resulting output: ", shift(message,key))
     elif choice =="d":
         results = decryptLoop(message)
+        lable=0
+        radic=dict()
         for key in results:
-            print(key,"("+str(26-key)+"):",results[key],calcRatio(results[key]))
+            radic[lable]=calcRatio(results[key])
+            print(key,"("+str(26-key)+"):",results[key],radic[lable])
+            lable+=1
         print("....................................")
-        print("most likely result")
+        print("most likely result:",results[max(radic,key=radic.get)])
+
+
     else:
         print("select e or d")
 
